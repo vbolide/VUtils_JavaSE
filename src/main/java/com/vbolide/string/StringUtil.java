@@ -41,12 +41,8 @@ public class StringUtil {
 	/**
 	 * Determines the output of {@linkplain StringUtil#toAlternatingCase()}
      * <ul>
-     * <li>{@linkplain #EVEN_INDEX_CHARACTER_UPPER_CASE}<br>
-     *     each word even index characters converted to upper-case and odd characters converted to lower-case.
-     * </li>
-     * <li>{@linkplain #ODD_INDEX_CHARACTER_UPPER_CASE}<br>
-     *     each word even index characters converted to lower-case and odd characters converted to upper-case.
-     * </li>
+     * <li>{@linkplain #EVEN_INDEX_CHARACTER_UPPER_CASE}<br></li>
+     * <li>{@linkplain #ODD_INDEX_CHARACTER_UPPER_CASE}<br></li>
      *</ul>
 	 * @author Vamshi Byagari
 	 */
@@ -69,7 +65,7 @@ public class StringUtil {
 	 * @return alternating case string.
 	 */
 	public static String toAlternatingCase(String input, AlternatingCaseEnum alternatinCaseEnum) throws InvalidParameterException{
-		if(!ValidationUtil.isValidString(input)) {
+		if(!ValidationUtil.isValidString(input) || alternatinCaseEnum == null) {
 			throw new InvalidParameterException("input parameter is invalid");
 		}
 		StringBuilder result = new StringBuilder();

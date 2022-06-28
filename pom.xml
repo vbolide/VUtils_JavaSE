@@ -8,7 +8,7 @@
 
 	<packaging>jar</packaging>
 
-	<version>1.0.24072022</version>
+	<version>1.0.28072022</version>
 	<name>VUtils</name>
 	<description>java utils class for basic validation checks and utility methods</description>
 

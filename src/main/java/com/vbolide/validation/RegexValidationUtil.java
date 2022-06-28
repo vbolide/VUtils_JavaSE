@@ -2,6 +2,8 @@ package com.vbolide.validation;
 
 import java.util.regex.Pattern;
 
+import com.vbolide.exception.InvalidParameterException;
+
 /**
  * Utility class for commonly used Regular Expression validation.
  * 
@@ -138,7 +140,10 @@ public class RegexValidationUtil {
 	 * @param regex - any one value from {@linkplain Regex}
 	 * @return the validation results either <b>true</b> or <b>false</b>.
 	 */
-	public static boolean isValid(String input, Regex regex) {
+	public static boolean isValid(String input, Regex regex) throws InvalidParameterException{
+		if(regex == null) {
+			throw new InvalidParameterException("invalid input parameter");
+		}
 		switch (regex) {
 			case EMAIL_REGEX: return EMAIL_PATTERN.matcher(input).matches();
 			case WHITE_SPACE_REGEX: return WHITE_SPACE_PATTERN.matcher(input).matches();

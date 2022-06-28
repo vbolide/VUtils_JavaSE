@@ -9,8 +9,10 @@ import java.util.TreeMap;
 import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.vbolide.exception.InvalidParameterException;
+
 /**
- * Utility class for {@linkplain Map} based on {@linkplain MapInstanceType}, simple way to create a map and add items to it.
+ * Utility class for {@linkplain Map} based on {@linkplain MapInstanceType}, simple way to create a map and add entries(key,value) to it.
  * 
  * @author Vamshi Byagari
  */
@@ -90,7 +92,10 @@ public class MapUtil {
 	 * @param mapInstanceType - any one value of {@linkplain MapInstanceType}
 	 * @return {@linkplain MapUtil} instance.
 	 */
-	public static MapUtil init(MapInstanceType mapInstanceType) {
+	public static MapUtil init(MapInstanceType mapInstanceType) throws InvalidParameterException{
+		if(mapInstanceType == null) {
+			throw new InvalidParameterException("invalid input parameter");
+		}
 		return new MapUtil(mapInstanceType);
 	}
 
