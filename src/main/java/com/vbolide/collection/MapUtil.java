@@ -89,7 +89,7 @@ public class MapUtil {
 
 	/**
 	 * creates an instance of {@linkplain MapUtil}
-	 * @param mapInstanceType - any one value of {@linkplain MapInstanceType}
+	 * @param mapInstanceType any one value of {@linkplain MapInstanceType}
 	 * @return {@linkplain MapUtil} instance.
 	 */
 	public static MapUtil init(final MapInstanceType mapInstanceType) throws InvalidParameterException{
@@ -101,8 +101,8 @@ public class MapUtil {
 
 	/**
 	 * add key, value pair to {@linkplain MapUtil#map}
-	 * @param key - key to add in map
-	 * @param value - value to add in map
+	 * @param key key to add in map
+	 * @param value value to add in map
 	 * @return reference of {@linkplain MapUtil}
 	 */
 	public MapUtil add(final String key, final Object value) {
@@ -111,9 +111,9 @@ public class MapUtil {
 	}
 
 	/**
-	 * add key, value paid to {@linkplain MapUtil#map} and return it.
-	 * @param key - key to add in map
-	 * @param value - value to add in map
+	 * add key, value pair to {@linkplain MapUtil#map} and return it.
+	 * @param key key to add in map
+	 * @param value value to add in map
 	 * @return {@linkplain MapUtil#map}
 	 */
 	public Map<String, Object> build(final String key, final Object value){

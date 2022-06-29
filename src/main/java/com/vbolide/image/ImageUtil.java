@@ -17,9 +17,10 @@ public class ImageUtil {
 	/**
 	 * Converters the input {@linkplain BufferedImage} to JPEG format {@linkplain BufferedImage}.
 	 * 
-	 * @param bufferedImage - an instance of {@linkplain BufferedImage}.
+	 * @param bufferedImage an instance of {@linkplain BufferedImage}.
 	 * @return {@linkplain BufferedImage} which is of type JPEG format.
-	 * @throws Exception - when the conversion fails.
+	 * @throws InvalidParameterException input parameter is null
+	 * @throws Exception failed to convert
 	 */
 	public static BufferedImage getJPGImage(final BufferedImage bufferedImage) throws InvalidParameterException, Exception{
 		if(bufferedImage == null) {

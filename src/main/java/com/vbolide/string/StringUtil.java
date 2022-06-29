@@ -20,21 +20,16 @@ public class StringUtil {
 
 
 	/**
-	 * {@linkplain CharSequence} [allowed implementations {@linkplain String}, {@linkplain StringBuilder}, {@linkplain StringBuffer}] length based on every byte in the string using {@linkplain Charset}
-	 * @param input - input string.
-	 * @param charset - sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
+	 * {@linkplain String} length based on every byte in the string using {@linkplain Charset}
+	 * @param input input string.
+	 * @param charset sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return length of string.
 	 */
-	public static int getLength(final CharSequence input, final Charset charset) throws InvalidParameterException{
-		if(input instanceof String || input instanceof StringBuilder || input instanceof StringBuffer) {
-			String stringValue = input.toString();
-			if(!ValidationUtil.isValidString(stringValue)) {
-				throw new InvalidParameterException("input parameter is invalid");
-			}
-			return stringValue.getBytes(charset == null ? StandardCharsets.UTF_8 : charset).length;
-		}else {
-			throw new InvalidParameterException("input implementation is not allowed");
+	public static int getLength(final String input, final Charset charset) throws InvalidParameterException{
+		if(!ValidationUtil.isValidString(input)) {
+			throw new InvalidParameterException("input parameter is invalid");
 		}
+		return input.getBytes(charset == null ? StandardCharsets.UTF_8 : charset).length;
 	}
 
 
@@ -60,8 +55,8 @@ public class StringUtil {
 
 	/**
 	 * converts the input string to alternating case.
-	 * @param input - an instance of {@linkplain String}
-	 * @param alternatinCaseEnum - any one value from {@linkplain AlternatingCaseEnum}
+	 * @param input an instance of {@linkplain String}
+	 * @param alternatinCaseEnum any one value from {@linkplain AlternatingCaseEnum}
 	 * @return alternating case string.
 	 */
 	public static String toAlternatingCase(final String input, final AlternatingCaseEnum alternatinCaseEnum) throws InvalidParameterException{
@@ -93,7 +88,7 @@ public class StringUtil {
 
 	/**
 	 * converts the input string to sentence case (each paragraph first word first character capitalized).
-	 * @param input - an instance of {@linkplain String}
+	 * @param input an instance of {@linkplain String}
 	 * @return sentence case string.
 	 */
 	public static String toSentenceCase(final String input) throws InvalidParameterException{
@@ -123,7 +118,7 @@ public class StringUtil {
 
 	/**
 	 * converts the input string to title case (each word first character capitalized).
-	 * @param input - an instance of {@linkplain String}
+	 * @param input an instance of {@linkplain String}
 	 * @return camel case string.
 	 */
 	public static String toTitleCase(final String input) throws InvalidParameterException{
@@ -132,7 +127,7 @@ public class StringUtil {
 
 	/**
 	 * converts the input string to capitalize case (each word first character capitalized).
-	 * @param input - an instance of {@linkplain String}
+	 * @param input an instance of {@linkplain String}
 	 * @return camel case string.
 	 */
 	public static String toCapitalizeCase(final String input) throws InvalidParameterException{
@@ -141,7 +136,7 @@ public class StringUtil {
 
 	/**
 	 * converts the input string to camel case (each word first character capitalized).
-	 * @param input - an instance of {@linkplain String}
+	 * @param input an instance of {@linkplain String}
 	 * @return camel case string.
 	 */
 	public static String toCamelCase(final String input) throws InvalidParameterException{
@@ -166,8 +161,8 @@ public class StringUtil {
 
 	/**
 	 * formats the input number based on the precision provided.
-	 * @param input - number to format.
-	 * @param precision - to what precision number should be formatted. if the precision is greater than the decimal points then 0 will be appended to it reach the precision number.
+	 * @param input number to format.
+	 * @param precision to what precision number should be formatted. if the precision is greater than the decimal points then 0 will be appended to it reach the precision number.
 	 * @return an instance of {@linkplain String} that contains number with formatted based on precision provided.
 	 */
 	public static String formatToDecimals(final double input, final int precision) {
@@ -185,8 +180,8 @@ public class StringUtil {
 
 	/**
 	 * converts {@linkplain String} to {@linkplain Base64} encoded string.
-	 * @param input - an instance of {@linkplain String}
-	 * @param charset - any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
+	 * @param input an instance of {@linkplain String}
+	 * @param charset any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return {@linkplain Base64} encoded string.
 	 */
 	public static String encodeState(final String input, final Charset charset) throws InvalidParameterException{
@@ -198,8 +193,8 @@ public class StringUtil {
 
 	/**
 	 * converts {@linkplain String} to {@linkplain Base64} decoded string.
-	 * @param input - an instance of {@linkplain String}
-	 * @param charset - any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
+	 * @param input an instance of {@linkplain String}
+	 * @param charset any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return {@linkplain Base64} decoded string.
 	 */
 	public static String decodedState(final String input, final Charset charset) throws InvalidParameterException{
@@ -281,7 +276,7 @@ public class StringUtil {
 
 	/**
 	 * This method is used to get the string representation of the current date and time including from year to seconds.
-	 * @param stringFromDateLevel - any one value from {@linkplain StringFromDateLevel}
+	 * @param stringFromDateLevel any one value from {@linkplain StringFromDateLevel}
 	 * @return string form of date, based on the input argument.
 	 */
 	public static String getStringFromDate(final StringFromDateLevel stringFromDateLevel) {
@@ -328,8 +323,8 @@ public class StringUtil {
 
 	/**
 	 * This method will generate the string by appending 0 to input argument.
-	 * @param value - to which 0's has to be appended.
-	 * @param length - the max length of the string.
+	 * @param value to which 0's has to be appended.
+	 * @param length the max length of the string.
 	 * @return string value appended by 0's.
 	 */
 	private static String getPrexifedStringFromDateVale(final int value, final int length) {

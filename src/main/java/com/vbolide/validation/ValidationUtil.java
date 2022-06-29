@@ -20,7 +20,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the {@linkplain String}(s) validity.
-	 * @param strings - variable arguments of {@linkplain String}
+	 * @param strings variable arguments of {@linkplain String}
 	 * @return 
 	 * 
      * <ul>
@@ -43,7 +43,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the {@linkplain List}(s) validity.
-	 * @param lists - variable arguments of {@linkplain List}
+	 * @param lists variable arguments of {@linkplain List}
 	 * @return 
 	 * 
      * <ul>
@@ -67,7 +67,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the {@linkplain Set}(s) validity.
-	 * @param sets - variable arguments of {@linkplain Set}
+	 * @param sets variable arguments of {@linkplain Set}
 	 * @return 
 	 * 
      * <ul>
@@ -91,7 +91,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the {@linkplain Map}(s) validity.
-	 * @param maps - variable arguments of {@linkplain Map}
+	 * @param maps variable arguments of {@linkplain Map}
 	 * @return 
 	 * 
      * <ul>
@@ -117,7 +117,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>byte</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>byte</b> array(s).
+	 * @param arrays variable arguments of <b>byte</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -141,7 +141,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>short</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>short</b> array(s).
+	 * @param arrays variable arguments of <b>short</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -165,7 +165,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>char</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>char</b> array(s).
+	 * @param arrays variable arguments of <b>char</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -188,7 +188,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>boolean</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>boolean</b> array(s).
+	 * @param arrays variable arguments of <b>boolean</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -211,7 +211,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>integer</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>integer</b> array(s).
+	 * @param arrays variable arguments of <b>integer</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -235,7 +235,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>long</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>long</b> array(s).
+	 * @param arrays variable arguments of <b>long</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -259,7 +259,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>float</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>float</b> array(s).
+	 * @param arrays variable arguments of <b>float</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -283,7 +283,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the <b>double</b> array(s) validity.
-	 * @param arrays - variable arguments of <b>double</b> array(s).
+	 * @param arrays variable arguments of <b>double</b> array(s).
 	 * @return 
 	 * 
      * <ul>
@@ -309,7 +309,7 @@ public class ValidationUtil {
 
 	/**
 	 * Checks the {@linkplain Object}(s) validity.
-	 * @param objects - variable arguments of {@linkplain Object}
+	 * @param objects variable arguments of {@linkplain Object}
 	 * @return 
 	 * 
      * <ul>
@@ -333,7 +333,7 @@ public class ValidationUtil {
 
 	/**
 	 * check the validity of the url.
-	 * @param input - string url.
+	 * @param input string url.
 	 * @return <b>true</b> if valid <b>flase</b> otherwise.
 	 */
 	public static boolean isValidURL(final String input) {

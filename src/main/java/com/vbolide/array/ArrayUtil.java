@@ -16,7 +16,7 @@ public class ArrayUtil {
 	/**
 	 * size of primitives data type arrays if non null else zero.
 	 * 
-	 * @param obj - array of primitives data type like {@code byte}, {@code short}, {@code char}, {@code int}, {@code long}, {@code float}, {@code double} and {@code String}
+	 * @param obj array of primitives data type like {@code byte}, {@code short}, {@code char}, {@code int}, {@code long}, {@code float}, {@code double} and {@code String}
 	 * @return size of array
 	 */
 	public static int size(final Object obj) {
@@ -46,10 +46,10 @@ public class ArrayUtil {
 	/**
 	 * checks whether the item is available in the array.
 	 * 
-	 * @param item - item to find in array.
-	 * @param arrayObject - array from which item to find.
+	 * @param item item to find in array.
+	 * @param arrayObject array from which item to find.
 	 * @return <ul><li><b>true</b> if item exists</li><li><b>false</b> otherwise</li></ul>
-	 * @throws InvalidParameterException - input parameters are invalid
+	 * @throws InvalidParameterException input parameters are invalid
 	 */
 	public static boolean hasItem(final Object item, final Object arrayObject) throws InvalidParameterException{
 		if(item == null || arrayObject == null) {
@@ -172,10 +172,10 @@ public class ArrayUtil {
 
 	/**
 	 * forms a {@code String} from input array parameter using provided parameter.
-	 * @param parameter - 
-	 * @param inputs - variable arguments of {@code String}.
+	 * @param parameter used to join strings.
+	 * @param inputs variable arguments of {@code String}.
 	 * @return {@linkplain String} formed by appending parameter to in-between each string in array.
-	 * @throws InvalidParameterException - input parameters are invalid.
+	 * @throws InvalidParameterException input parameters are invalid.
 	 */
 	public static String parameterSeperatedStringFromArray(final String parameter, final String... inputs) throws InvalidParameterException{
 		if(ValidationUtil.isValidString(parameter) && size(inputs) > 0) {
@@ -196,10 +196,10 @@ public class ArrayUtil {
 
 	/**
 	 * forms a {@code String} array from {@code String} by using {@linkplain String#split(String)} with provided parameter. 
-	 * @param parameter - used to split string.
-	 * @param input - source string.
+	 * @param parameter used to split string.
+	 * @param input source string.
 	 * @return an array of {@code String} which is splitted using the parameter provided.
-	 * @throws InvalidParameterException - input parameters are invalid.
+	 * @throws InvalidParameterException input parameters are invalid.
 	 */
 	public static String[] arrayFromParameterSeperatedString(final String parameter, final String input) throws InvalidParameterException{
 		if(ValidationUtil.isValidString(parameter, input)) {

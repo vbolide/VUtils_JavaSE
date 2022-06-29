@@ -136,8 +136,8 @@ public class RegexValidationUtil {
 
 	/**
 	 * validates the input {@linkplain String} with respect to {@linkplain Regex}.
-	 * @param input - instance of {@linkplain String} that should be validated.
-	 * @param regex - any one value from {@linkplain Regex}
+	 * @param input instance of {@linkplain String} that should be validated.
+	 * @param regex any one value from {@linkplain Regex}
 	 * @return the validation results either <b>true</b> or <b>false</b>.
 	 */
 	public static boolean isValid(final String input, final Regex regex) throws InvalidParameterException{
