@@ -91,6 +91,7 @@ public class MapUtil {
 	 * creates an instance of {@linkplain MapUtil}
 	 * @param mapInstanceType any one value of {@linkplain MapInstanceType}
 	 * @return {@linkplain MapUtil} instance.
+	 * @throws InvalidParameterException input parameter invalid
 	 */
 	public static MapUtil init(final MapInstanceType mapInstanceType) throws InvalidParameterException{
 		if(mapInstanceType == null) {

@@ -95,6 +95,7 @@ public class URLUtil {
 	 * This method will return full {@linkplain URL} by excluding {@linkplain java.net.URI} part from the argument.
 	 * @param url url to be processed.
 	 * @return {@linkplain URL} by excluding {@linkplain java.net.URI} or null if unable to do so.
+	 * @throws InvalidParameterException input parameter invalid
 	 */
 	public static String getFullDomain(final String url) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(url)) {
@@ -114,6 +115,7 @@ public class URLUtil {
 	 * This method will return {@linkplain URL} by excluding ({@linkplain java.net.URI}, protocol, and WWW if exists) part from the argument.
 	 * @param url url to be processed.
 	 * @return {@linkplain URL} by excluding ({@linkplain java.net.URI}, protocol, and WWW if exists) or null if unable to do so.
+	 * @throws InvalidParameterException input parameter invalid
 	 */
 	public static String getDomainAndSubDomain(final String url) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(url)) {
@@ -133,6 +135,7 @@ public class URLUtil {
 	 * This method will return {@linkplain URL} by excluding (Protocol and WWW if exists) part from the argument.
 	 * @param url url to be processed.
 	 * @return {@linkplain URL} by excluding (Protocol, and WWW if exists) or null if unable to do so.
+	 * @throws InvalidParameterException input parameter invalid
 	 */
 	public static String getDomainAndSubDomainWithURI(final String url) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(url)) {

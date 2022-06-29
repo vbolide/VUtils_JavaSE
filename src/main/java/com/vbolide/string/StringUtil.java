@@ -24,6 +24,7 @@ public class StringUtil {
 	 * @param input input string.
 	 * @param charset sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return length of string.
+	 * @throws InvalidParameterException input parameters are invalid
 	 */
 	public static int getLength(final String input, final Charset charset) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
@@ -58,6 +59,7 @@ public class StringUtil {
 	 * @param input an instance of {@linkplain String}
 	 * @param alternatinCaseEnum any one value from {@linkplain AlternatingCaseEnum}
 	 * @return alternating case string.
+	 * @throws InvalidParameterException input parameters are invalid
 	 */
 	public static String toAlternatingCase(final String input, final AlternatingCaseEnum alternatinCaseEnum) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input) || alternatinCaseEnum == null) {
@@ -90,6 +92,7 @@ public class StringUtil {
 	 * converts the input string to sentence case (each paragraph first word first character capitalized).
 	 * @param input an instance of {@linkplain String}
 	 * @return sentence case string.
+	 * @throws InvalidParameterException input parameter invalid
 	 */
 	public static String toSentenceCase(final String input) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
@@ -120,6 +123,7 @@ public class StringUtil {
 	 * converts the input string to title case (each word first character capitalized).
 	 * @param input an instance of {@linkplain String}
 	 * @return camel case string.
+	 * @throws InvalidParameterException input parameter invalid
 	 */
 	public static String toTitleCase(final String input) throws InvalidParameterException{
 		return toCamelCase(input);
@@ -129,6 +133,7 @@ public class StringUtil {
 	 * converts the input string to capitalize case (each word first character capitalized).
 	 * @param input an instance of {@linkplain String}
 	 * @return camel case string.
+	 * @throws InvalidParameterException input parameter invalid
 	 */
 	public static String toCapitalizeCase(final String input) throws InvalidParameterException{
 		return toCamelCase(input);
@@ -138,6 +143,7 @@ public class StringUtil {
 	 * converts the input string to camel case (each word first character capitalized).
 	 * @param input an instance of {@linkplain String}
 	 * @return camel case string.
+	 * @throws InvalidParameterException input parameters are invalid
 	 */
 	public static String toCamelCase(final String input) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
@@ -183,6 +189,7 @@ public class StringUtil {
 	 * @param input an instance of {@linkplain String}
 	 * @param charset any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return {@linkplain Base64} encoded string.
+	 * @throws InvalidParameterException input parameters are invalid
 	 */
 	public static String encodeState(final String input, final Charset charset) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
@@ -196,6 +203,7 @@ public class StringUtil {
 	 * @param input an instance of {@linkplain String}
 	 * @param charset any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return {@linkplain Base64} decoded string.
+	 * @throws InvalidParameterException input parameters are invalid
 	 */
 	public static String decodedState(final String input, final Charset charset) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
@@ -278,8 +286,12 @@ public class StringUtil {
 	 * This method is used to get the string representation of the current date and time including from year to seconds.
 	 * @param stringFromDateLevel any one value from {@linkplain StringFromDateLevel}
 	 * @return string form of date, based on the input argument.
+	 * @throws InvalidParameterException input parameters are invalid
 	 */
-	public static String getStringFromDate(final StringFromDateLevel stringFromDateLevel) {
+	public static String getStringFromDate(final StringFromDateLevel stringFromDateLevel) throws InvalidParameterException{
+		if(stringFromDateLevel == null) {
+			throw new InvalidParameterException("input parameter is invalid");
+		}
 
 		Calendar calendar = Calendar.getInstance();
 		switch(stringFromDateLevel) {
