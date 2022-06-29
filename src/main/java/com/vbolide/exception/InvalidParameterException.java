@@ -2,7 +2,7 @@ package com.vbolide.exception;
 
 public class InvalidParameterException extends Exception{
 
-	public InvalidParameterException(String messge) {
+	public InvalidParameterException(final String messge) {
 		super(messge);
 	}
 

@@ -21,7 +21,7 @@ public class ImageUtil {
 	 * @return {@linkplain BufferedImage} which is of type JPEG format.
 	 * @throws Exception - when the conversion fails.
 	 */
-	public static BufferedImage getJPGImage(BufferedImage bufferedImage) throws InvalidParameterException, Exception{
+	public static BufferedImage getJPGImage(final BufferedImage bufferedImage) throws InvalidParameterException, Exception{
 		if(bufferedImage == null) {
 			throw new InvalidParameterException("input parameter BufferedImage instace is null");
 		}

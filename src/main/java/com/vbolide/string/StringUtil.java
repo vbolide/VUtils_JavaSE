@@ -20,12 +20,12 @@ public class StringUtil {
 
 
 	/**
-	 * {@linkplainplain CharSequence} [allowed implementations {@linkplain String}, {@linkplain StringBuilder}, {@linkplain StringBuffer}] length based on every byte in the string using {@linkplain Charset}
+	 * {@linkplain CharSequence} [allowed implementations {@linkplain String}, {@linkplain StringBuilder}, {@linkplain StringBuffer}] length based on every byte in the string using {@linkplain Charset}
 	 * @param input - input string.
 	 * @param charset - sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return length of string.
 	 */
-	public static int getLength(CharSequence input, Charset charset) throws InvalidParameterException{
+	public static int getLength(final CharSequence input, final Charset charset) throws InvalidParameterException{
 		if(input instanceof String || input instanceof StringBuilder || input instanceof StringBuffer) {
 			String stringValue = input.toString();
 			if(!ValidationUtil.isValidString(stringValue)) {
@@ -39,7 +39,7 @@ public class StringUtil {
 
 
 	/**
-	 * Determines the output of {@linkplain StringUtil#toAlternatingCase()}
+	 * Determines the output of {@linkplain StringUtil#toAlternatingCase(String, AlternatingCaseEnum)}
      * <ul>
      * <li>{@linkplain #EVEN_INDEX_CHARACTER_UPPER_CASE}<br></li>
      * <li>{@linkplain #ODD_INDEX_CHARACTER_UPPER_CASE}<br></li>
@@ -64,7 +64,7 @@ public class StringUtil {
 	 * @param alternatinCaseEnum - any one value from {@linkplain AlternatingCaseEnum}
 	 * @return alternating case string.
 	 */
-	public static String toAlternatingCase(String input, AlternatingCaseEnum alternatinCaseEnum) throws InvalidParameterException{
+	public static String toAlternatingCase(final String input, final AlternatingCaseEnum alternatinCaseEnum) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input) || alternatinCaseEnum == null) {
 			throw new InvalidParameterException("input parameter is invalid");
 		}
@@ -96,7 +96,7 @@ public class StringUtil {
 	 * @param input - an instance of {@linkplain String}
 	 * @return sentence case string.
 	 */
-	public static String toSentenceCase(String input) throws InvalidParameterException{
+	public static String toSentenceCase(final String input) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
 			throw new InvalidParameterException("input parameter is invalid");
 		}
@@ -126,7 +126,7 @@ public class StringUtil {
 	 * @param input - an instance of {@linkplain String}
 	 * @return camel case string.
 	 */
-	public static String toTitleCase(String input) throws InvalidParameterException{
+	public static String toTitleCase(final String input) throws InvalidParameterException{
 		return toCamelCase(input);
 	}
 
@@ -135,7 +135,7 @@ public class StringUtil {
 	 * @param input - an instance of {@linkplain String}
 	 * @return camel case string.
 	 */
-	public static String toCapitalizeCase(String input) throws InvalidParameterException{
+	public static String toCapitalizeCase(final String input) throws InvalidParameterException{
 		return toCamelCase(input);
 	}
 
@@ -144,7 +144,7 @@ public class StringUtil {
 	 * @param input - an instance of {@linkplain String}
 	 * @return camel case string.
 	 */
-	public static String toCamelCase(String input) throws InvalidParameterException{
+	public static String toCamelCase(final String input) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
 			throw new InvalidParameterException("input parameter is invalid");
 		}
@@ -170,7 +170,7 @@ public class StringUtil {
 	 * @param precision - to what precision number should be formatted. if the precision is greater than the decimal points then 0 will be appended to it reach the precision number.
 	 * @return an instance of {@linkplain String} that contains number with formatted based on precision provided.
 	 */
-	public static String formatToDecimals(double input, int precision) {
+	public static String formatToDecimals(final double input, final int precision) {
 		if(input == (long)input) {
 			return String.format("%s", (long)input);
 		}else {
@@ -189,7 +189,7 @@ public class StringUtil {
 	 * @param charset - any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return {@linkplain Base64} encoded string.
 	 */
-	public static String encodeState(String input, Charset charset) throws InvalidParameterException{
+	public static String encodeState(final String input, final Charset charset) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
 			throw new InvalidParameterException("input parameter is invalid");
 		}
@@ -202,7 +202,7 @@ public class StringUtil {
 	 * @param charset - any sub class of {@linkplain Charset}, if none passed then uses {@linkplain StandardCharsets#UTF_8}.
 	 * @return {@linkplain Base64} decoded string.
 	 */
-	public static String decodedState(String input, Charset charset) throws InvalidParameterException{
+	public static String decodedState(final String input, final Charset charset) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(input)) {
 			throw new InvalidParameterException("input parameter is invalid");
 		}
@@ -235,7 +235,7 @@ public class StringUtil {
 
 
     /**
-     * Determines the output of {@linkplain StringUtil#getStringFromDate()}.
+     * Determines the output of {@linkplain StringUtil#getStringFromDate(StringFromDateLevel)}.
      * <ul>
      * <li>{@linkplain #UPTO_MONTH}<br></li>
      * <li>{@linkplain #UPTO_DATE}<br></li>
@@ -249,42 +249,42 @@ public class StringUtil {
 	 */
 	public enum StringFromDateLevel{
 		/**
-		 * Determines the output of {@linkplain StringUtil#getStringFromDate()} to include YEAR and MONTH
+		 * Determines the output of {@linkplain StringUtil#getStringFromDate(StringFromDateLevel)} to include YEAR and MONTH
 		 */
 		UPTO_MONTH,
 		
 		/**
-		 * Determines the output of {@linkplain StringUtil#getStringFromDate()} to include YEAR, MONTH and DATE
+		 * Determines the output of {@linkplain StringUtil#getStringFromDate(StringFromDateLevel)} to include YEAR, MONTH and DATE
 		 */
 		UPTO_DATE,
 		
 		/**
-		 * Determines the output of {@linkplain StringUtil#getStringFromDate()} to include YEAR, MONTH, DATE and HOUR
+		 * Determines the output of {@linkplain StringUtil#getStringFromDate(StringFromDateLevel)} to include YEAR, MONTH, DATE and HOUR
 		 */
 		UPTO_HOUR,
 		
 		/**
-		 * Determines the output of {@linkplain StringUtil#getStringFromDate()} to include YEAR, MONTH, DATE, HOUR and MINUTE
+		 * Determines the output of {@linkplain StringUtil#getStringFromDate(StringFromDateLevel)} to include YEAR, MONTH, DATE, HOUR and MINUTE
 		 */
 		UPTO_MINUTE,
 		
 		/**
-		 * Determines the output of {@linkplain StringUtil#getStringFromDate()} to include YEAR, MONTH, DATE, HOUR, MINUTE and SECOND
+		 * Determines the output of {@linkplain StringUtil#getStringFromDate(StringFromDateLevel)} to include YEAR, MONTH, DATE, HOUR, MINUTE and SECOND
 		 */
 		UPTO_SECOND,
 		
 		/**
-		 * Determines the output of {@linkplain StringUtil#getStringFromDate()} to include YEAR, MONTH, DATE, HOUR, MINUTE, SECOND and MILLISECOND
+		 * Determines the output of {@linkplain StringUtil#getStringFromDate(StringFromDateLevel)} to include YEAR, MONTH, DATE, HOUR, MINUTE, SECOND and MILLISECOND
 		 */
 		UPTO_MILLISECOND
 	}
 
 	/**
 	 * This method is used to get the string representation of the current date and time including from year to seconds.
-	 * @param level - any one value from {@linkplain StringFromDateLevel}
+	 * @param stringFromDateLevel - any one value from {@linkplain StringFromDateLevel}
 	 * @return string form of date, based on the input argument.
 	 */
-	public static String getStringFromDate(StringFromDateLevel stringFromDateLevel) {
+	public static String getStringFromDate(final StringFromDateLevel stringFromDateLevel) {
 
 		Calendar calendar = Calendar.getInstance();
 		switch(stringFromDateLevel) {
@@ -332,7 +332,7 @@ public class StringUtil {
 	 * @param length - the max length of the string.
 	 * @return string value appended by 0's.
 	 */
-	private static String getPrexifedStringFromDateVale(int value, int length) {
+	private static String getPrexifedStringFromDateVale(final int value, final int length) {
 		String string = String.valueOf(value);
 		if(string.length()==length) {
 			return string;

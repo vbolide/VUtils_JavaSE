@@ -18,23 +18,23 @@ public class GsonUtil {
 	}
 
 
-	public static String getJson(Object object) {
+	public static String getJson(final Object object) {
 		return new GsonBuilder().serializeNulls().create().toJson(object);
 	}
 	
-	public static JsonElement getJsonElement(Object object) {
+	public static JsonElement getJsonElement(final Object object) {
 		return new GsonBuilder().serializeNulls().create().toJsonTree(object);
 	}
 
 
-	public static String getJson(GsonKV... gsonKVs) {
+	public static String getJson(final GsonKV... gsonKVs) {
 		Map<Object,Object> map = new HashMap<>();
 		for (GsonKV gsonKV : gsonKVs)
 			map.put(gsonKV.getKey(), gsonKV.getValue());
 		return new GsonBuilder().serializeNulls().create().toJson(map);
 	}
 
-	public static String getJson(JsonElement jsonTree, GsonKV... gsonKVs) {
+	public static String getJson(final JsonElement jsonTree, final GsonKV... gsonKVs) {
 		JsonObject jsonObject = jsonTree.getAsJsonObject();
 		for (GsonKV gsonKV : gsonKVs)
 			jsonObject.add(gsonKV.getJsonElementKey(), gsonKV.getJsonElement());
@@ -42,7 +42,7 @@ public class GsonUtil {
 	}
 
 
-	public static JsonElement getJsonElement(GsonKV... gsonKVs) {
+	public static JsonElement getJsonElement(final GsonKV... gsonKVs) {
 		Map<Object,Object> map = new HashMap<>();
 		for (GsonKV gsonKV : gsonKVs)
 			map.put(gsonKV.getKey(), gsonKV.getValue());

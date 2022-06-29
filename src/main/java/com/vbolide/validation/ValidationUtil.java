@@ -32,7 +32,7 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	public static boolean isValidString(String... strings) {
+	public static boolean isValidString(final String... strings) {
 		for (String string : strings) {
 			if(string == null || string.isEmpty() || string.isBlank()) {
 				return false;
@@ -56,7 +56,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidList(List... lists) {
+	public static boolean isValidList(final List... lists) {
 		for (List list : lists) {
 			if(list == null || list.isEmpty()) {
 				return false;
@@ -80,7 +80,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidSet(Set... sets) {
+	public static boolean isValidSet(final Set... sets) {
 		for (Set set : sets) {
 			if(set == null || set.isEmpty()) {
 				return false;
@@ -104,7 +104,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidMap(Map... maps) {
+	public static boolean isValidMap(final Map... maps) {
 		for (Map map : maps) {
 			if(map == null || map.isEmpty()) {
 				return false;
@@ -130,7 +130,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidByteArray(byte[]... arrays) {
+	public static boolean isValidByteArray(final byte[]... arrays) {
 		for (byte[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -154,7 +154,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidShortArray(short[]... arrays) {
+	public static boolean isValidShortArray(final short[]... arrays) {
 		for (short[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -177,7 +177,7 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	public static boolean isValidCharArray(char[]... arrays) {
+	public static boolean isValidCharArray(final char[]... arrays) {
 		for (char[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -200,7 +200,7 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	public static boolean isValidBooleanArray(boolean[]... arrays) {
+	public static boolean isValidBooleanArray(final boolean[]... arrays) {
 		for (boolean[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -224,7 +224,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidIntArray(int[]... arrays) {
+	public static boolean isValidIntArray(final int[]... arrays) {
 		for (int[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -248,7 +248,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidLongArray(long[]... arrays) {
+	public static boolean isValidLongArray(final long[]... arrays) {
 		for (long[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -272,7 +272,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidFloatArray(float[]... arrays) {
+	public static boolean isValidFloatArray(final float[]... arrays) {
 		for (float[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -296,7 +296,7 @@ public class ValidationUtil {
      * </ul>
 	 */
 	@SuppressWarnings("rawtypes")
-	public static boolean isValidDoubleArray(double[]... arrays) {
+	public static boolean isValidDoubleArray(final double[]... arrays) {
 		for (double[] array : arrays) {
 			if(array == null || array.length == 0) {
 				return false;
@@ -321,7 +321,7 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	public static boolean isValidObjectArray(Object[]... objects) {
+	public static boolean isValidObjectArray(final Object[]... objects) {
 		for (Object[] objectArray : objects) {
 			if(objectArray == null || objectArray.length == 0) {
 				return false;
@@ -336,7 +336,7 @@ public class ValidationUtil {
 	 * @param input - string url.
 	 * @return <b>true</b> if valid <b>flase</b> otherwise.
 	 */
-	public static boolean isValidURL(String input) {
+	public static boolean isValidURL(final String input) {
 		return isValidString(input) && input.matches(VALID_URL_REGEX);
 	}
 	

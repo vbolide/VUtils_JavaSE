@@ -140,7 +140,7 @@ public class RegexValidationUtil {
 	 * @param regex - any one value from {@linkplain Regex}
 	 * @return the validation results either <b>true</b> or <b>false</b>.
 	 */
-	public static boolean isValid(String input, Regex regex) throws InvalidParameterException{
+	public static boolean isValid(final String input, final Regex regex) throws InvalidParameterException{
 		if(regex == null) {
 			throw new InvalidParameterException("invalid input parameter");
 		}

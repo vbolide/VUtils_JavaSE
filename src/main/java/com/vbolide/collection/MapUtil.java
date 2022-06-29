@@ -19,7 +19,7 @@ import com.vbolide.exception.InvalidParameterException;
 public class MapUtil {
 
 	/**
-	 * determines that which map implementation should be instantiated in {@linkplain MapUtil#init()}.
+	 * determines that which map implementation should be instantiated in {@linkplain MapUtil#init(MapInstanceType)}.
 	 * 
      * <ul>
      * <li>{@linkplain MapInstanceType#CONCURRENT_HASHMAP}<br></li>
@@ -35,37 +35,37 @@ public class MapUtil {
 	 */
 	public enum MapInstanceType{
 		/**
-		 * {@linkplain ConcurrentHashMap} instance used in {@linkplain MapUtil#init()}.
+		 * {@linkplain ConcurrentHashMap} instance used in {@linkplain MapUtil#init(MapInstanceType)}.
 		 */
 		CONCURRENT_HASHMAP,
 		
 		/**
-		 * {@linkplain HashMap} instance used in {@linkplain MapUtil#init()}.
+		 * {@linkplain HashMap} instance used in {@linkplain MapUtil#init(MapInstanceType)}.
 		 */
 		HASHMAP,
 		
 		/**
-		 * {@linkplain Hashtable} instance used in {@linkplain MapUtil#init()}.
+		 * {@linkplain Hashtable} instance used in {@linkplain MapUtil#init(MapInstanceType)}.
 		 */
 		HASHTABLE,
 		
 		/**
-		 * {@linkplain IdentityHashMap} instance used in {@linkplain MapUtil#init()}.
+		 * {@linkplain IdentityHashMap} instance used in {@linkplain MapUtil#init(MapInstanceType)}.
 		 */
 		IDENTITY_HASHMAP,
 		
 		/**
-		 * {@linkplain LinkedHashMap} instance used in {@linkplain MapUtil#init()}.
+		 * {@linkplain LinkedHashMap} instance used in {@linkplain MapUtil#init(MapInstanceType)}.
 		 */
 		LINKED_HASHMAP,
 		
 		/**
-		 * {@linkplain TreeMap} instance used in {@linkplain MapUtil#init()}.
+		 * {@linkplain TreeMap} instance used in {@linkplain MapUtil#init(MapInstanceType)}.
 		 */
 		TREEMAP,
 		
 		/**
-		 * {@linkplain WeakHashMap} instance used in {@linkplain MapUtil#init()}.
+		 * {@linkplain WeakHashMap} instance used in {@linkplain MapUtil#init(MapInstanceType)}.
 		 */
 		WEAK_HASHMAP
 	}
@@ -75,7 +75,7 @@ public class MapUtil {
 	 */
 	private Map<String, Object> map;
 
-	private MapUtil(MapInstanceType mapInstanceType) {
+	private MapUtil(final MapInstanceType mapInstanceType) {
 		switch (mapInstanceType) {
 			case CONCURRENT_HASHMAP: map = new ConcurrentHashMap<>(); break;
 			case HASHTABLE: map = new Hashtable<>(); break;
@@ -92,7 +92,7 @@ public class MapUtil {
 	 * @param mapInstanceType - any one value of {@linkplain MapInstanceType}
 	 * @return {@linkplain MapUtil} instance.
 	 */
-	public static MapUtil init(MapInstanceType mapInstanceType) throws InvalidParameterException{
+	public static MapUtil init(final MapInstanceType mapInstanceType) throws InvalidParameterException{
 		if(mapInstanceType == null) {
 			throw new InvalidParameterException("invalid input parameter");
 		}
@@ -105,7 +105,7 @@ public class MapUtil {
 	 * @param value - value to add in map
 	 * @return reference of {@linkplain MapUtil}
 	 */
-	public MapUtil add(String key, Object value) {
+	public MapUtil add(final String key, final Object value) {
 		map.put(key, value);
 		return this;
 	}
@@ -116,7 +116,7 @@ public class MapUtil {
 	 * @param value - value to add in map
 	 * @return {@linkplain MapUtil#map}
 	 */
-	public Map<String, Object> build(String key, Object value){
+	public Map<String, Object> build(final String key, final Object value){
 		map.put(key, value);
 		return map;
 	}

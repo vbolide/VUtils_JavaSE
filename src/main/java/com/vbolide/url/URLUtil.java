@@ -29,13 +29,12 @@ public class URLUtil {
 
 
 	/**
-	 * encodes the url with {@linkplain StandardCharsets#UTF8} character encoding
+	 * encodes the url with {@code UTF_8} character encoding
 	 * @param url - url to be encoded
-	 * @param charset - any sub class of {@linkplain Charset}
 	 * @throws InvalidParameterException - when any of the parameter passed are invalid.
 	 * @throws UnsupportedEncodingException - if the encoding is not supported.
 	 */
-	public static String encodeURL(String url) throws InvalidParameterException, UnsupportedEncodingException{
+	public static String encodeURL(final String url) throws InvalidParameterException, UnsupportedEncodingException{
 		if(!ValidationUtil.isValidString(url)) {
 			throw new InvalidParameterException("input parameter url is invalid");
 		}
@@ -50,7 +49,7 @@ public class URLUtil {
 	 * @throws InvalidParameterException - when any of the parameter passed are invalid.
 	 * @throws UnsupportedEncodingException - if the encoding is not supported.
 	 */
-	public static String encodeURL(String url, Charset charset) throws InvalidParameterException, UnsupportedEncodingException{
+	public static String encodeURL(final String url, final Charset charset) throws InvalidParameterException, UnsupportedEncodingException{
 		if(!ValidationUtil.isValidString(url)) {
 			throw new InvalidParameterException("input parameter url is invalid");
 		}
@@ -61,13 +60,13 @@ public class URLUtil {
 	}
 
 	/**
-	 * decodes the url with {@linkplain StandardCharsets#UTF8} character decoding
+	 * decodes the url with {@code UTF_8} character decoding
 	 * @param url - url to be decoded
 	 * @return decoded url as {@linkplain String}
 	 * @throws InvalidParameterException - when any of the parameter passed are invalid
 	 * @throws UnsupportedEncodingException - if the decoding is not supported.
 	 */
-	public static String decodeURL(String url) throws InvalidParameterException, UnsupportedEncodingException{
+	public static String decodeURL(final String url) throws InvalidParameterException, UnsupportedEncodingException{
 		if(!ValidationUtil.isValidString(url)) {
 			throw new InvalidParameterException("input parameter url is invalid");
 		}
@@ -82,7 +81,7 @@ public class URLUtil {
 	 * @throws InvalidParameterException - when any of the parameter passed are invalid
 	 * @throws UnsupportedEncodingException - if the decoding is not supported.
 	 */
-	public static String decodeURL(String url, Charset charset) throws InvalidParameterException, UnsupportedEncodingException{
+	public static String decodeURL(final String url, final Charset charset) throws InvalidParameterException, UnsupportedEncodingException{
 		if(!ValidationUtil.isValidString(url)) {
 			throw new InvalidParameterException("input parameter url is invalid");
 		}
@@ -93,11 +92,11 @@ public class URLUtil {
 	}
 
 	/**
-	 * This method will return full {@linkplainplain URL} by excluding {@linkplainplain URI} part from the argument.
+	 * This method will return full {@linkplain URL} by excluding {@linkplain java.net.URI} part from the argument.
 	 * @param url - url to be processed.
-	 * @return {@linkplainplain URL} by excluding {@linkplainplain URI} or null if unable to do so.
+	 * @return {@linkplain URL} by excluding {@linkplain java.net.URI} or null if unable to do so.
 	 */
-	public static String getFullDomain(String url) throws InvalidParameterException{
+	public static String getFullDomain(final String url) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(url)) {
 			throw new InvalidParameterException("input parameter url is invalid");
 		}
@@ -112,11 +111,11 @@ public class URLUtil {
 
 
 	/**
-	 * This method will return {@linkplainplain URL} by excluding ({@linkplainplain URI}, protocol, and WWW if exists) part from the argument.
+	 * This method will return {@linkplain URL} by excluding ({@linkplain java.net.URI}, protocol, and WWW if exists) part from the argument.
 	 * @param url - url to be processed.
-	 * @return {@linkplainplain URL} by excluding ({@linkplainplain URI}, protocol, and WWW if exists) or null if unable to do so.
+	 * @return {@linkplain URL} by excluding ({@linkplain java.net.URI}, protocol, and WWW if exists) or null if unable to do so.
 	 */
-	public static String getDomainAndSubDomain(String url) throws InvalidParameterException{
+	public static String getDomainAndSubDomain(final String url) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(url)) {
 			throw new InvalidParameterException("input parameter url is invalid");
 		}
@@ -131,19 +130,17 @@ public class URLUtil {
 
 
 	/**
-	 * This method will return {@linkplainplain URL} by excluding (Protocol and WWW if exists) part from the argument.
+	 * This method will return {@linkplain URL} by excluding (Protocol and WWW if exists) part from the argument.
 	 * @param url - url to be processed.
-	 * @return {@linkplainplain URL} by excluding (Protocol, and WWW if exists) or null if unable to do so.
+	 * @return {@linkplain URL} by excluding (Protocol, and WWW if exists) or null if unable to do so.
 	 */
-	public static String getDomainAndSubDomainWithURI(String url) throws InvalidParameterException{
+	public static String getDomainAndSubDomainWithURI(final String url) throws InvalidParameterException{
 		if(!ValidationUtil.isValidString(url)) {
 			throw new InvalidParameterException("input parameter url is invalid");
 		}
-		if(url.endsWith("/"))
-			url = url.substring(0, url.length()-1);
 		String path = "";
 		try {
-			path = new URL(url).getPath();
+			path = new URL(url.endsWith("/") ? url.substring(0, url.length()-1) : url).getPath();
 		} catch (Exception e) {}
 		return getDomainAndSubDomain(url)+path;
 	}
