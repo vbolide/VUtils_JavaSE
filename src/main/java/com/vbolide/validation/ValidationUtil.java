@@ -129,7 +129,6 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	@SuppressWarnings("rawtypes")
 	public static boolean isValidByteArray(final byte[]... arrays) {
 		for (byte[] array : arrays) {
 			if(array == null || array.length == 0) {
@@ -153,7 +152,6 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	@SuppressWarnings("rawtypes")
 	public static boolean isValidShortArray(final short[]... arrays) {
 		for (short[] array : arrays) {
 			if(array == null || array.length == 0) {
@@ -223,7 +221,6 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	@SuppressWarnings("rawtypes")
 	public static boolean isValidIntArray(final int[]... arrays) {
 		for (int[] array : arrays) {
 			if(array == null || array.length == 0) {
@@ -247,7 +244,6 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	@SuppressWarnings("rawtypes")
 	public static boolean isValidLongArray(final long[]... arrays) {
 		for (long[] array : arrays) {
 			if(array == null || array.length == 0) {
@@ -271,7 +267,6 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	@SuppressWarnings("rawtypes")
 	public static boolean isValidFloatArray(final float[]... arrays) {
 		for (float[] array : arrays) {
 			if(array == null || array.length == 0) {
@@ -295,7 +290,6 @@ public class ValidationUtil {
      * </li>
      * </ul>
 	 */
-	@SuppressWarnings("rawtypes")
 	public static boolean isValidDoubleArray(final double[]... arrays) {
 		for (double[] array : arrays) {
 			if(array == null || array.length == 0) {
