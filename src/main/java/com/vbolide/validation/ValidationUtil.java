@@ -16,7 +16,7 @@ public class ValidationUtil {
 	 */
 	public static final String VALID_URL_REGEX = "^(https?:\\/\\/)(www.)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$";
 
-
+	private static final String EMPTY_STRING = "";
 
 	/**
 	 * Checks the {@linkplain String}(s) validity.
@@ -34,7 +34,7 @@ public class ValidationUtil {
 	 */
 	public static boolean isValidString(final String... strings) {
 		for (String string : strings) {
-			if(string == null || string.isEmpty() || string.isBlank()) {
+			if(string == null || string.isEmpty() || EMPTY_STRING.equals(string.trim())) {
 				return false;
 			}
 		}
