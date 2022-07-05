@@ -32,107 +32,72 @@ public class RegexValidationUtil {
 	public enum Regex{
 
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses email validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses email validation regular expression pattern
+		 * {@code ^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$}
 		 */
-		EMAIL_REGEX,
+		EMAIL_REGEX("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"),
 		
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses white space validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses white space validation regular expression pattern
+		 * {@code \\s}
 		 */
-		WHITE_SPACE_REGEX,
+		WHITE_SPACE_REGEX("\\s"),
 		
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses white space, tab, new line, carriage return and form feed validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses white space, tab, new line, carriage return and form feed validation regular expression pattern
+		 * {@code [ \t\n\r\f]+}
 		 */
-		WHITE_SPACE_AND_OTHER_REGEX,
+		WHITE_SPACE_AND_OTHER_REGEX("[ \t\n\r\f]+"),
 		
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses lower-case characters validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses lower-case characters validation regular expression pattern
+		 * {@code ^[a-z]*$}
 		 */
-		LOWERCASE_REGEX,
+		LOWERCASE_REGEX("^[a-z]*$"),
 		
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses upper-case characters validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses upper-case characters validation regular expression pattern
+		 * {@code ^[A-Z]*$}
 		 */
-		UPPERCASE_REGEX,
+		UPPERCASE_REGEX("^[A-Z]*$"),
 		
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses numeric and lower-case characters validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses numeric and lower-case characters validation regular expression pattern
+		 * {@code ^[a-z0-9]*$}
 		 */
-		NUMERIC_LOWECASE_REGEX,
+		NUMERIC_LOWECASE_REGEX("^[a-z0-9]*$"),
 		
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses numeric and upper-case characters validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses numeric and upper-case characters validation regular expression pattern
+		 * {@code ^[A-Z0-9]*$}
 		 */
-		NUMERIC_UPPERCASE_REGEX,
+		NUMERIC_UPPERCASE_REGEX("^[A-Z0-9]*$"),
 		
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses alpha numeric validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses alpha numeric validation regular expression pattern
+		 * {@code ^[a-zA-Z0-9]*$}
 		 */
-		APLHA_NUMERIC_REGEX,
+		APLHA_NUMERIC_REGEX("^[a-zA-Z0-9]*$"),
 
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses indian mobile number validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses indian mobile number validation regular expression pattern
+		 * {@code [6789]{1}[0-9]{9}}
 		 */
-		INDIAN_MOBILE_REGEX,
+		INDIAN_MOBILE_REGEX("[6789]{1}[0-9]{9}"),
 
 		/**
-		 * {@linkplain RegexValidationUtil#isValid} uses number validation regular expression pattern
+		 * {@linkplain RegexValidationUtil#isValid(String, Regex)} uses number validation regular expression pattern
+		 * {@code ^[0-9]*$}
 		 */
-		NUMERIC_REGEX,
+		NUMERIC_REGEX("^[0-9]*$");
+
+
+		public final String label;
+
+		private Regex(String label) {
+			this.label = label;
+		}
 	}
-
-
-	/**
-	 * email validation regular expression pattern
-	 */
-	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-
-	/**
-	 * white space validation regular expression pattern
-	 */
-	private static final Pattern WHITE_SPACE_PATTERN = Pattern.compile("\\s");
-
-	/**
-	 * white space, tab, new line, carriage return and form feed validation regular expression pattern
-	 */
-	private static final Pattern WHITE_SPACES_AND_OTHER = Pattern.compile("[ \t\n\r\f]+");
-
-	/**
-	 * lower-case characters validation regular expression pattern
-	 */
-	private static final Pattern LOWERCASE_PATTERN = Pattern.compile("^[a-z]*$");
-
-	/**
-	 * upper-case characters validation regular expression pattern
-	 */
-	private static final Pattern UPPERCASE_PATTERN = Pattern.compile("^[A-Z]*$");
-
-	/**
-	 * numeric and lower-case characters validation regular expression pattern
-	 */
-	private static final Pattern NUMBERIC_LOWERCASE_PATTERN = Pattern.compile("^[a-z0-9]*$");
-
-	/**
-	 * numeric and upper-case characters validation regular expression pattern
-	 */
-	private static final Pattern NUMBERIC_UPPERCASE_PATTERN = Pattern.compile("^[A-Z0-9]*$");
-
-	/**
-	 * alpha numeric validation regular expression pattern
-	 */
-	private static final Pattern ALPHA_NUMBERIC_PATTERN = Pattern.compile("^[a-zA-Z0-9]*$");
-
-	/**
-	 * indian mobile number validation regular expression pattern
-	 */
-	private static final Pattern INDIAN_MOBILE_PATTERN = Pattern.compile("[6789]{1}[0-9]{9}");
-
-	/**
-	 * number validation regular expression pattern
-	 */
-	private static final Pattern NUMERIC_PATTERN = Pattern.compile("^[0-9]*$");
-
 
 	/**
 	 * validates the input {@linkplain String} with respect to {@linkplain Regex}.
@@ -145,19 +110,7 @@ public class RegexValidationUtil {
 		if(regex == null) {
 			throw new InvalidParameterException("invalid input parameter");
 		}
-		switch (regex) {
-			case EMAIL_REGEX: return EMAIL_PATTERN.matcher(input).matches();
-			case WHITE_SPACE_REGEX: return WHITE_SPACE_PATTERN.matcher(input).matches();
-			case WHITE_SPACE_AND_OTHER_REGEX: return WHITE_SPACES_AND_OTHER.matcher(input).matches();
-			case LOWERCASE_REGEX: return LOWERCASE_PATTERN.matcher(input).matches();
-			case UPPERCASE_REGEX: return UPPERCASE_PATTERN.matcher(input).matches();
-			case NUMERIC_LOWECASE_REGEX: return NUMBERIC_LOWERCASE_PATTERN.matcher(input).matches();
-			case NUMERIC_UPPERCASE_REGEX: return NUMBERIC_UPPERCASE_PATTERN.matcher(input).matches();
-			case APLHA_NUMERIC_REGEX: return ALPHA_NUMBERIC_PATTERN.matcher(input).matches();
-			case NUMERIC_REGEX: return NUMERIC_PATTERN.matcher(input).matches();
-			case INDIAN_MOBILE_REGEX: return INDIAN_MOBILE_PATTERN.matcher(input).matches();
-			default: return false;
-		}
+		return Pattern.compile(regex.label).matcher(input).matches();
 	}
 
 }

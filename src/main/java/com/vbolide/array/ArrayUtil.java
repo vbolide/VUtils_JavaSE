@@ -171,6 +171,128 @@ public class ArrayUtil {
 	}
 
 	/**
+	 * Delimiters that are most commonly used to append strings, 
+	 * used as a parameter for {@linkplain ArrayUtil#arrayFromParameterSeperatedString(ArrayDelimeter, String)} and
+	 * {@linkplain ArrayUtil#parameterSeperatedStringFromArray(ArrayDelimeter, String...)}.
+	 * 
+     * <ul>
+     * <li>{@linkplain #SPACE}<br></li>
+     * <li>{@linkplain #COMMA}<br></li>
+     * <li>{@linkplain #DOT}<br></li>
+     * <li>{@linkplain #DOLLAR}<br></li>
+     * <li>{@linkplain #HASH}<br></li>
+     * <li>{@linkplain #AT}<br></li>
+     * <li>{@linkplain #ASTERIC}<br></li>
+     * <li>{@linkplain #AMPERSAND}<br></li>
+     * <li>{@linkplain #UNDERSCORE}<br></li>
+     * <li>{@linkplain #HYPHEN}<br></li>
+     * <li>{@linkplain #PERCENTILE}<br></li>
+     *</ul>
+	 * @author Vamshi Byagari
+	 */
+	public enum ArrayDelimeter{
+		/**
+		 * <b>\\s</b>
+		 */
+		SPACE(" "),
+
+		/**
+		 * <b>,</b>
+		 */
+		COMMA(","),
+
+		/**
+		 * <b>.</b>
+		 */
+		DOT("."),
+
+		/**
+		 * <b>$</b>
+		 */
+		DOLLAR("$"),
+
+		/**
+		 * <b>#</b>
+		 */
+		HASH("#"),
+
+		/**
+		 * <b>@</b>
+		 */
+		AT("@"),
+
+		/**
+		 * <b>*</b>
+		 */
+		ASTERIC("*"),
+
+		/**
+		 * <b>&</b>
+		 */
+		AMPERSAND("&"),
+
+		/**
+		 * <b>_</b>
+		 */
+		UNDERSCORE("_"),
+
+		/**
+		 * <b>-</b>
+		 */
+		HYPHEN("-"),
+
+		/**
+		 * <b>%</b>
+		 */
+		PERCENTILE("%");
+
+		public final String label;
+
+		private ArrayDelimeter(String label) {
+			this.label = label;
+		}
+	}
+
+	/**
+	 * forms a {@code String} from input array parameter using provided parameter.
+	 * @param parameter used to join strings.
+	 * @param inputs variable arguments of {@code String}.
+	 * @return {@linkplain String} formed by appending parameter to in-between each string in array.
+	 * @throws InvalidParameterException input parameters are invalid.
+	 */
+	public static String parameterSeperatedStringFromArray(final ArrayDelimeter arrayDelimeter, final String... inputs) throws InvalidParameterException{
+		if(arrayDelimeter != null && size(inputs) > 0) {
+			StringBuilder result = new StringBuilder();
+			for (String input : inputs) {
+				if(result.length() == 0) {
+					result.append(input);
+				}else {
+					result.append(arrayDelimeter.label);
+					result.append(input);
+				}
+			}
+			return result.toString();
+		}else {
+			throw new InvalidParameterException("invalid parameters provided");
+		}
+	}
+
+	/**
+	 * forms a {@code String} array from {@code String} by using {@linkplain String#split(String)} with provided parameter. 
+	 * @param parameter used to split string.
+	 * @param input source string.
+	 * @return an array of {@code String} which is splitted using the parameter provided.
+	 * @throws InvalidParameterException input parameters are invalid.
+	 */
+	public static String[] arrayFromParameterSeperatedString(final ArrayDelimeter arrayDelimeter, final String input) throws InvalidParameterException{
+		if(arrayDelimeter != null &&  ValidationUtil.isValidString(input)) {
+			return input.split(arrayDelimeter.label);
+		}else {
+			throw new InvalidParameterException("invalid parameters provided");
+		}
+	}
+
+	/**
 	 * forms a {@code String} from input array parameter using provided parameter.
 	 * @param parameter used to join strings.
 	 * @param inputs variable arguments of {@code String}.

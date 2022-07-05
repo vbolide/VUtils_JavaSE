@@ -326,7 +326,7 @@ public class ValidationUtil {
 
 
 	/**
-	 * check the validity of the url.
+	 * Checks the validity of the url.
 	 * @param input string url.
 	 * @return <b>true</b> if valid <b>flase</b> otherwise.
 	 */
