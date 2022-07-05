@@ -19,7 +19,7 @@ import com.vbolide.exception.InvalidParameterException;
 public class MapUtil {
 
 	/**
-	 * determines that which map implementation should be instantiated in {@linkplain MapUtil#init(MapInstanceType)}.
+	 * Determines that which map implementation should be instantiated in {@linkplain MapUtil#init(MapInstanceType)}.
 	 * 
      * <ul>
      * <li>{@linkplain MapInstanceType#CONCURRENT_HASHMAP}<br></li>
@@ -73,7 +73,7 @@ public class MapUtil {
 	/**
 	 * {@linkplain Map} reference that holds the instance of {@linkplain Map} implementation class based on {@linkplain MapInstanceType}
 	 */
-	private Map<String, Object> map;
+	private volatile Map<String, Object> map;
 
 	private MapUtil(final MapInstanceType mapInstanceType) {
 		switch (mapInstanceType) {
@@ -83,6 +83,7 @@ public class MapUtil {
 			case LINKED_HASHMAP: map = new LinkedHashMap<>(); break;
 			case TREEMAP: map = new TreeMap<>(); break;
 			case WEAK_HASHMAP: map = new WeakHashMap<>(); break;
+			case HASHMAP:
 			default: map = new HashMap<>(); break;
 		}
 	}
